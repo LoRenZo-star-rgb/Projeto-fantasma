@@ -62,7 +62,8 @@ GraficoAnalítico <- ggplot(dados_inner6) +
   aes(x=Date, y=PreçoFinal, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21",
                                                   size=2) +
-  labs(x="Período de Tempo(anos)", y="Média das lojas(Reais)") +
-  theme_estat()
+  labs(x="Período de Tempo(Anos)", y="Média das lojas(Reais)") +
+  theme_estat() +
+  scale_x_continuous(breaks = seq(1880,1889))
 ggsave("series_uni.pdf", width = 158, height = 93, units = "mm")
 GraficoAnalítico
