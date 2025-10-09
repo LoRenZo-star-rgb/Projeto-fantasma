@@ -54,6 +54,10 @@ dados_inner4 <- dados_inner3 %>% mutate(Date = year(Date))
 ## Adicionando o preço em reais
 dados_inner5 <- dados_inner4 %>% mutate(PreçoTotalReais = PreçoTotal * 5.31)
 
+## Conferindo a quantidade de lojas por ano
+qtd_lojas_ano <- dados_inner5 %>% group_by(Date) %>% summarise(frequencia = n_distinct(StoreID))
+qtd_lojas_ano
+
 ## Fazendo a média das lojas registradas nos anos de 1880 até 1889
 dados_inner6 <- dados_inner5 %>% group_by(Date) %>% summarise(PreçoFinal = sum(PreçoTotalReais)/18)
 
@@ -67,3 +71,6 @@ GraficoAnalítico <- ggplot(dados_inner6) +
   scale_x_continuous(breaks = seq(1880,1889))
 ggsave("series_uni.pdf", width = 158, height = 93, units = "mm")
 GraficoAnalítico
+
+## Análise escrita do gráfico
+# Analisando o gráfico, é possível perceber uma tendência de aumento na receita média das lojas durante os anos de 1880 até 1889, com uma redução não significativa no ano de 1887 para 1888. Porém, logo após esse período, percebemos uma retomada no crescimento.
