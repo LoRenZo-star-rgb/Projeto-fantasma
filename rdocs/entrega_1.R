@@ -28,10 +28,6 @@ library(ggplot2)
 library(readxl)
 library(dplyr)
 
-## Instalação Tinytex
-library(tinytex)
-tinytex::install_tinytex()
-
 ## Excel
 Relatorio_Vendas <- read_xlsx("relatorio_old_town_road.xlsx", sheet = "relatorio_vendas")
 Infos_Vendas <- read_xlsx("relatorio_old_town_road.xlsx", sheet = "infos_vendas")
