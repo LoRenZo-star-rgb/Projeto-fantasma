@@ -57,7 +57,7 @@ qtd_lojas_ano
 ## Fazendo a média das lojas registradas nos anos de 1880 até 1889
 dados_inner6 <- dados_inner5 %>% group_by(Date) %>% summarise(PreçoFinal = sum(PreçoTotalReais)/18)
 
-##Mostrando, por meio de um gráfico, a análise feita das médias anuais das lojas
+## Mostrando, por meio de um gráfico, a análise feita das médias anuais das lojas
 GraficoAnalítico <- ggplot(dados_inner6) +
   aes(x=Date, y=PreçoFinal, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21",
