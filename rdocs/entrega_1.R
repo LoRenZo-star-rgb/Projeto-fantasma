@@ -62,11 +62,8 @@ GraficoAnalítico <- ggplot(dados_inner6) +
   aes(x=Date, y=PreçoFinal, group=1) +
   geom_line(size=1,colour="#A11D21") + geom_point(colour="#A11D21",
                                                   size=2) +
-  labs(x="Período de Tempo(Anos)", y="Média das lojas(Reais)") +
+  labs(x="Período de Tempo (Anos)", y="Receita média das lojas (R$)") +
   theme_estat() +
   scale_x_continuous(breaks = seq(1880,1889))
 ggsave("series_uni.pdf", width = 158, height = 93, units = "mm")
 GraficoAnalítico
-
-## Análise escrita do gráfico
-# Analisando o gráfico, é possível perceber uma tendência de aumento na receita média das lojas durante os anos de 1880 até 1889, com uma redução não significativa no ano de 1887 para 1888. Porém, logo após esse período, percebemos uma retomada no crescimento.
