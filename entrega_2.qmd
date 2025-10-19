@@ -10,7 +10,7 @@ source("rdocs/entrega_2.R")
 
 # Análises
 
-## Sobre a relação entre peso e altura de todos os clientes
+## Sobre a relação entre peso e altura dos clientes
  
  Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro. A amostra apresenta o peso e a altura de todos os clientes registrados no banco de dados. A obeservação foi feita com duas variáveis quantitativas e a foi reproduzida a partir de um gráfico de dispersão.
 
