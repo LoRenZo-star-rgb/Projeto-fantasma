@@ -8,70 +8,18 @@ output-file: "Entrega 2"
 source("rdocs/entrega_2.R")
 ```
 
-
-```{r}
-# Rodar apenas uma vez na vida!
-## Instalando o tinytex(pacote apenas)
-### CRAN version
-install.packages('tinytex')
-
-
-## Baixando o tinytex
-library(tinytex)
-tinytex::install_tinytex()
-```
-
-# Objetivo
-
-Esse template foi criado para o alocado conseguir observar como ficaria sua análise o arquivo principal. É daqui que o gerente de projetos irá copiar a análise e inserir no documento principal que gerará o relatório estatístico.
-
 # Análises
 
-## Análise 3
-
-## Análise 4
+## Sobre a relação entre peso e altura de todos os clientes
+ 
+ Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro. A amostra apresenta o peso e a altura de todos os clientes registrados no banco de dados. A obeservação foi feita com duas variáveis quantitativas e a foi reproduzida a partir de um gráfico de dispersão.
 
 ```{r}
-#| label: fig-
-#| fig-cap: "Gráfico "
-
-
-
+#| label: fig-peso_altura
+#| fig-cap: "Gráfico de dispersão do peso pela altura dos clientes"
+GraficoPesoAltura
 ```
-
-
-::: {#quad- layout-align="center" quad-pos="H"}
-```{=latex}
-
-
-
-```
-
-Medidas resumo da 
-:::
-
-
-
-::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
-```{=latex}
-
-
-```
-
-
-:::
-
-
-
-
-$\ref{fig-}$
-
-[@tbl-]
-
-
-[**Quadro** @quad-]
-
-
-
+ 
+ Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional. Há uma tendência do peso aumentar quanto maior a altura do cliente.Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo de +1 e o contrário, quando está mais próximo de -1. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será proporcional. Diante disso e com o resultado que foi encontrado de 0,6971007 na observação, é possível afirmar que há uma forte correlação positiva.
 
 
