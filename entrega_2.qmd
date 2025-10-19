@@ -8,9 +8,9 @@ output-file: "Entrega 2"
 source("rdocs/entrega_2.R")
 ```
 
-# Análises
+# Análise
 
-## Sobre a relação entre peso e altura dos clientes
+## Relação entre peso e altura dos clientes
  
  Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro. A amostra apresenta o peso e a altura de todos os clientes registrados no banco de dados. A obeservação foi feita com duas variáveis quantitativas e a foi reproduzida a partir de um gráfico de dispersão.
 
@@ -20,6 +20,6 @@ source("rdocs/entrega_2.R")
 GraficoPesoAltura
 ```
  
- Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional. Há uma tendência do peso aumentar quanto maior a altura do cliente. Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo de +1 e o contrário, quando está mais próximo de -1. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será proporcional. Diante disso e com o resultado que foi encontrado de 0,6971007 na observação, é possível afirmar que há uma forte correlação positiva.
+ Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional. Há uma tendência do peso aumentar quanto maior a altura do cliente. Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo de +1 e -1. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será diretamente proporcional. Diante disso e com o resultado que foi encontrado de 0,6971007 na observação, é possível afirmar que há uma correlação positiva relevante.
 
 
