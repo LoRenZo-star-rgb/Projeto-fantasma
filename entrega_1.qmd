@@ -12,9 +12,9 @@ source("rdocs/entrega_1.R")
 
 Esse template foi criado para o alocado conseguir observar como ficaria sua análise o arquivo principal. É daqui que o gerente de projetos irá copiar a análise e inserir no documento principal que gerará o relatório estatístico.
 
-# Análises
+# Análise
 
-## Sobre a relação entre a receita média das lojas no período de 1880 a 1889
+## Relação entre a receita média das lojas no período de 1880 a 1889
 
  Esta análise tem o objetivo de mostrar a relação entre as receitas médias registradas, em reais, de 1880 a 1889. A amostra abrange 18 lojas e suas receitas médias anuais. A observação foi feita com duas variáveis quantitativas e a visualização dos dados será feita a partir de um gráfico de linhas que tem como fonte o banco de dados "relatorio_old_town_road.xlsx".
 
