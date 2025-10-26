@@ -10,9 +10,9 @@ source("rdocs/entrega_2.R")
 
 # Análise
 
-## Relação entre peso e altura dos clientes
+## Entre peso e altura dos clientes
 
-Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro. A amostra apresenta o peso e a altura de todos os clientes registrados no banco de dados. A obeservação foi feita com duas variáveis quantitativas e foi reproduzida a partir de um gráfico de dispersão.
+Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro, unidades modificadas de libras e decímetro. Os dados apresenta o peso e a altura de todos os clientes registrados no banco de dados. Esta análise foi feita com duas variáveis quantitativas e foi reproduzida a partir de um gráfico de dispersão.
 
 ```{r}
 #| label: fig-peso_altura
@@ -20,4 +20,5 @@ Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos 
 GraficoPesoAltura
 ```
 
-Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional. Há uma tendência do peso aumentar quanto maior a altura do cliente. Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo de +1 e -1. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será diretamente proporcional. Diante disso e com o resultado que foi encontrado de 0,6971007 na observação, é possível afirmar que há uma correlação positiva relevante.
+Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional entre os 1990 clientes informados. Há uma tendência do peso aumentar quanto maior a altura do cliente. Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo dos extremos. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será diretamente proporcional. Diante disso e com o resultado que foi encontrado de 0,697 do coeficiente, é possível afirmar que há uma correlação positiva relevante. 
+Outro fator importante visto é a variação. A partir do cálculo do coeficeinte de variação das duas variáveis, é perceptível que o peso varia mais quando comparado com a altura. O peso tem um coeficiente de 0.158 e a altura 0.057, portanto, por ser maior, o peso tem valores mais dispersos em relação a média.
