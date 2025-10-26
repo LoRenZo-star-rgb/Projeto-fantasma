@@ -39,14 +39,34 @@ Infos_Clientes4 <- Infos_Clientes3 %>% group_by(Name) %>% summarise(Weight_kg, H
 ## Fazendo um gráfico para analisar a relação entre peso X altura entre os clientes
 GraficoPesoAltura <- ggplot(Infos_Clientes4) +
   aes(x = Weight_kg, y = Height_cm) +
-  geom_point(colour = "#A11D21", size = 1) +
+  geom_point(colour = "#A11D21", size = 1, alpha = 0.5) +
   labs(
-    x = "Peso dos Clientes (Kg)",
-    y = "Altura dos Clientes (Cm)"
+    x = "Peso (Kg)",
+    y = "Altura (Cm)"
   ) +
-  theme_estat() + geom_smooth()
+  theme_estat()
 ggsave("disp_uni.pdf", width = 158, height = 93, units = "mm")
 GraficoPesoAltura
 
 ## Fazendo o Coeficiente de Correlação de Pearson
 cor(Infos_Clientes4$Weight_kg, Infos_Clientes4$Height_cm)
+
+## Calculando o coeficiente de variação do peso
+desvio_padrao_peso <- sd(Infos_Clientes4$Weight_kg)
+desvio_padrao_peso
+
+media_peso <- mean(Infos_Clientes4$Weight_kg)
+media_peso
+
+coeficiente_de_variacao_peso <- desvio_padrao_peso/media_peso
+coeficiente_de_variacao_peso
+
+## Calculando o coeficiente de variação da altura
+desvio_padrao_altura <- sd(Infos_Clientes4$Height_cm)
+desvio_padrao_altura
+
+media_altura <- mean(Infos_Clientes4$Height_cm)
+media_altura
+
+coeficiente_de_variacao_altura <- desvio_padrao_altura/media_altura
+coeficiente_de_variacao_altura
