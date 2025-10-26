@@ -14,7 +14,7 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análise
 
-## Relação entre a receita média das lojas no período de 1880 a 1889
+## Entre a receita média das lojas no período de 1880 a 1889
 
  Esta análise tem o objetivo de mostrar a relação entre as receitas médias registradas, em reais, de 1880 a 1889. A amostra abrange 18 lojas e suas receitas médias anuais. A observação foi feita com duas variáveis quantitativas e a visualização dos dados será feita a partir de um gráfico de linhas que tem como fonte o banco de dados "relatorio_old_town_road.xlsx".
 
