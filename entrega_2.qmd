@@ -10,9 +10,9 @@ source("rdocs/entrega_2.R")
 
 # Análise
 
-## Entre peso e altura dos clientes
+## Peso e altura dos clientes
 
-Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro, unidades modificadas de libras e decímetro. Os dados apresenta o peso e a altura de todos os clientes registrados no banco de dados. Esta análise foi feita com duas variáveis quantitativas e foi reproduzida a partir de um gráfico de dispersão.
+Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro, unidades modificadas de libras e decímetro. Os dados apresentam o peso e a altura de todos os clientes registrados no banco de dados. Esta análise foi feita com duas variáveis quantitativas e foi reproduzida a partir de um gráfico de dispersão.
 
 ```{r}
 #| label: fig-peso_altura
