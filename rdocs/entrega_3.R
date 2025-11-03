@@ -43,7 +43,7 @@ dados_inner9 <- dplyr::inner_join(dados_inner8, Infos_Cidades, by = "CityID")
 dados_inner10 <- dados_inner9 %>% filter(NameCity == "Âmbar Seco")
 
 ## Deixando apenas as variáveis de interesse
-dados_inner11 <- dados_inner10 %>% group_by(NameStore, Sex) %>% reframe(Age, NameCity)
+dados_inner11 <- dados_inner10 %>% group_by(NameStore, Sex, ClientID) %>% reframe(Age, NameCity)
 
 ##Fazendo o gráfico de boxplot
 boxplot <- ggplot(dados_inner11) +
@@ -52,7 +52,7 @@ boxplot <- ggplot(dados_inner11) +
   stat_summary(
     fun = "mean", geom = "point", shape = 23, size = 3, fill = "white"
   ) +
-  labs(x = "Lojas", y = "Idade") +
+  labs(x = "Lojas", y = "Idade (Anos)") +
   theme_estat()
 ggsave("box_bi.pdf", width = 158, height = 93, units = "mm")
 boxplot
@@ -62,7 +62,7 @@ print_quadro_resumo <- function(data, Age, title="Medidas resumo
 da(o) [nome da variável]", label="quad:quadro_resumo1")
 {
   var_name <- ensym(Age)
-  data <- data %>%
+  data <- data %>% distinct(ClientID, .keep_all = TRUE) %>%
     summarize(`Média` = round(mean(!!sym(Age)),2),
               `Desvio Padrão` = round(sd(!!sym(Age)),2),
               `Variância` = round(var(!!sym(Age)),2),
