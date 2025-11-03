@@ -7,13 +7,266 @@ output-file: titulo do projeto
 
 ```{r}
 #| include: false
-source("rdocs/packages.R")
+source("rdocs/entrega_4.R")
 ```
 
 # Introdução
 
+ Esta análise reúne quatro estudos com o objetivo de ver as relações entre variáveis quantitativas e qualitativas a partir de dados do banco "relatorio_old_town_road.xlsx". O primeiro estudo analisa as receitas médias anuais, em reais, de 18 lojas entre 1880 e 1889, por meio de um gráfico de linhas. O segundo, a correlação entre peso e altura dos clientes, em quilogramas por centiímetro e representado por um gráfico de dispersão. O terceiro busca compreender o perfil etário dos clientes das lojas de Âmbar Seco, combinando idade e nome dos estabelecimentos, com visualização em boxplot e quadro resumo. Por fim, o quarto estudo identifica os três produtos mais vendidos nas três lojas com maior receita em 1889, por meio de um gráfico de colunas que relaciona quantidade e nome dos produtos.
+
 # Referencial Teórico
+
+## Análise Descritiva Univariada
+
+### Média
+
+A média é a soma das observações dividida pelo número total delas, dada pela fórmula:
+
+$$\bar{X}=\frac{\sum\limits_{i=1}^{n}X_i}{n}$$
+
+Com:
+
+-   $i = 1, \, 2, \, ..., \, n$
+
+-   $n =$ número total de observações
+
+### Mediana
+
+Sejam as $n$ observações de um conjunto de dados $X=X_{(1)},X_{(2)},\ldots, X_{(n)}$ de determinada variável ordenadas de forma crescente. A mediana do conjunto de dados $X$ é o valor que deixa metade das observações abaixo dela e metade dos dados acima.
+
+Com isso, pode-se calcular a mediana da seguinte forma:
+
+$$
+med(X) =
+    \begin{cases}
+         X_{\frac{n+1}{2}}, \textrm{para n ímpar} \\
+         \frac{X_{\frac{n}{2}}+X_{\frac{n}{2} + 1}}{2}, \textrm{para n par} \\
+    \end{cases}
+$$
+
+### Quartis
+
+Os quartis são separatrizes que dividem o conjunto de dados em quatro partes iguais. O primeiro quartil (ou inferior) delimita os 25% menores valores, o segundo representa a mediana, e o terceiro delimita os 25% maiores valores. Inicialmente deve-se calcular a posição do quartil:
+
+-   Posição do primeiro quartil $P_1$: $$P_1=\frac{n+1}{4}$$
+
+-   Posição da mediana (segundo quartil) $P_2$: $$P_2 = \frac{n+1}{2}$$
+
+-   Posição do terceiro quartil $P_3$: $$P_3=\frac{3 \times (n+1)}{4}$$
+
+Com $n$ sendo o tamanho da amostra. Dessa forma, $X_{\left( P_i \right)}$ é o valor do $i$-ésimo quartil, onde $X_{\left( j \right)}$ representa a $j$-ésima observação dos dados ordenados.
+
+Se o cálculo da posição resultar em uma fração, deve-se fazer a média entre o valor que está na posição do inteiro anterior e do seguinte ao da posição.
+
+### Variância
+
+A variância é uma medida que avalia o quanto os dados estão dispersos em relação à média, em uma escala ao quadrado da escala dos dados.
+
+#### Variância Populacional
+
+Para uma população, a variância é dada por:
+
+$$\sigma^2=\frac{\sum\limits_{i=1}^{N}\left(X_i - \mu\right)^2}{N}$$
+
+Com:
+
+-   $X_i =$ $i$-ésima observação da população
+
+-   $\mu =$ média populacional
+
+-   $N =$ tamanho da população
+
+#### Variância Amostral
+
+Para uma amostra, a variância é dada por:
+
+$$S^2=\frac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n-1}$$
+
+Com:
+
+-   $X_i =$ i-ésima observação da amostra
+
+-   $\bar{X} =$ média amostral
+
+-   $n =$ tamanho da amostra
+
+### Desvio Padrão
+
+O desvio padrão é a raiz quadrada da variância. Ele avalia o quanto os dados estão dispersos em relação à média.
+
+#### Desvio Padrão Populacional
+
+Para uma população, o desvio padrão é dado por:
+
+$$\sigma=\sqrt{\frac{\sum\limits_{i=1}^{N}\left(X_i - \mu\right)^2}{N}}$$
+
+Com:
+
+-   $X_i =$ i-ésima observação da população
+
+-   $\mu =$ média populacional
+
+-   $N =$ tamanho da população
+
+#### Desvio Padrão Amostral
+
+Para uma amostra, o desvio padrão é dado por:
+
+$$S=\sqrt{\frac{\sum\limits_{i=1}^{n}\left(X_i - \bar{X}\right)^2}{n-1}}$$
+
+Com:
+
+-   $X_i =$ i-ésima observação da amostra
+
+-   $\bar{X} =$ média amostral
+
+-   $n =$ tamanho da amostra
+
+### Coeficiente de Variação
+
+O coeficiente de variação fornece a dispersão dos dados em relação à média. Quanto menor for o seu valor, mais homogêneos serão os dados. O coeficiente de variação é considerado baixo (apontando um conjunto de dados homogêneo) quando for menor ou igual a 25%. Ele é dado pela fórmula:
+
+$$C_V=\frac{S}{\bar{X}}\times 100$$
+
+Com:
+
+-   $S =$ desvio padrão amostral
+
+-   $\bar{X} =$ média amostral
+
+### Boxplot
+
+O boxplot é uma representação gráfica na qual se pode perceber de forma mais clara como os dados estão distribuídos. A figura abaixo ilustra um exemplo de boxplot.
+
+![Exemplo de boxplot](images/box_uni.png){fig-align="center"}
+
+A porção inferior do retângulo diz respeito ao primeiro quartil, enquanto a superior indica o terceiro quartil. Já o traço no interior do retângulo representa a mediana do conjunto de dados, ou seja, o valor em que o conjunto de dados é dividido em dois subconjuntos de mesmo tamanho. A média é representada pelo losango branco e os pontos são *outliers*. Os *outliers* são valores discrepantes da série de dados, ou seja, valores que não demonstram a realidade de um conjunto de dados.
+
+### Gráfico de Dispersão
+
+O gráfico de dispersão é uma representação gráfica utilizada para ilustrar o comportamento conjunto de duas variáveis quantitativas. A figura abaixo ilustra um exemplo de gráfico de dispersão, onde cada ponto representa uma observação do banco de dados.
+
+![Exemplo de Gráfico de Dispersão](images/disp_uni.png){fig-align="center"}
+
+### Tipos de Variáveis
+
+#### Qualitativas
+
+As variáveis qualitativas são as variáveis não numéricas, que representam categorias ou características da população. Estas subdividem-se em:
+
+-   **Nominais**: quando não existe uma ordem entre as categorias da variável (exemplos: sexo, cor dos olhos, fumante ou não, etc)
+-   **Ordinais**: quando existe uma ordem entre as categorias da variável (exemplos: nível de escolaridade, mês, estágio de doença, etc)
+
+#### Quantitativas
+
+As variáveis quantitativas são as variáveis numéricas, que representam características numéricas da população, ou seja, quantidades. Estas subdividem-se em:
+
+-   **Discretas**: quando os possíveis valores são enumeráveis (exemplos: número de filhos, número de cigarros fumados, etc)
+-   **Contínuas**: quando os possíveis valores são resultado de medições (exemplos: massa, altura, tempo, etc)
+
+### Coeficiente de Correlação de Pearson
+
+O coeficiente de correlação de Pearson é uma medida que verifica o grau de relação linear entre duas variáveis quantitativas. Este coeficiente varia entre os valores -1 e 1. O valor zero significa que não há relação linear entre as variáveis. Quando o valor do coeficiente $r$ é negativo, diz-se existir uma relação de grandeza inversamente proporcional entre as variáveis. Analogamente, quando $r$ é positivo, diz-se que as duas variáveis são diretamente proporcionais.
+
+O coeficiente de correlação de Pearson é normalmente representado pela letra $r$ e a sua fórmula de cálculo é:
+
+$$
+r_{Pearson} = \frac{\displaystyle \sum_{i=1}^{n} \left [ \left(x_i-\bar{x}\right) \left(y_i-\bar{y}\right) \right]}{\sqrt{\displaystyle \sum_{i=1}^{n} x_i^2 - n\bar{x}^2}  \times \sqrt{\displaystyle \sum_{i=1}^{n} y_i^2 - n\bar{y}^2}}
+$$
+
+Onde:
+
+-   $x_i =$ i-ésimo valor da variável $X$
+-   $y_i =$ i-ésimo valor da variável $Y$
+-   $\bar{x} =$ média dos valores da variável $X$
+-   $\bar{y} =$ média dos valores da variável $Y$
+
+Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
 
 # Análises
 
+### Receita média das lojas no período de 1880 a 1889
+
+ Esta análise tem o objetivo de mostrar a relação entre as receitas médias registradas, em reais, de 1880 a 1889. A amostra abrange 18 lojas e suas receitas médias anuais. A observação foi feita com duas variáveis quantitativas e a visualização dos dados será feita a partir de um gráfico de linhas que tem como fonte o banco de dados "relatorio_old_town_road.xlsx".
+
+```{r}
+#| label: fig-receita_ano
+#| fig-cap: "Gráfico de linhas da receita média das lojas, em reais, no decorrer dos anos de 1880 a 1889"
+GraficoAnalítico
+```
+
+ Tendo o gráfico $\ref{fig-receita_ano}$ como referência, percebe-se uma tendência de aumento na receita média das lojas durante os anos de 1880 até 1889, com uma redução não significativa no ano de 1887 para 1888 quando comparada com os aumentos anuais. Porém, logo após esse período, é possível perceber uma retomada no crescimento.
+
+### Peso e altura dos clientes
+
+ Esta análise tem o objetivo de mostrar a relação entre o peso e a altura dos clientes, em quilograma por centímetro, unidades modificadas de libras e decímetro. Os dados apresentam o peso e a altura de todos os clientes registrados no banco de dados. Esta análise foi feita com duas variáveis quantitativas e foi reproduzida a partir de um gráfico de dispersão.
+
+```{r}
+#| label: fig-peso_altura
+#| fig-cap: "Gráfico de dispersão do peso pela altura dos clientes"
+GraficoPesoAltura
+```
+
+ Tendo o gráfico $\ref{fig-peso_altura}$ como base, é notório uma relação proporcional entre os 1990 clientes informados. Há uma tendência do peso aumentar quanto maior a altura do cliente. Para certificar essa relação, foi feita o cálculo do coeficiente de correlação de Pearson. O coeficiente de Pearson está entre o intervalo de -1 e +1, exibindo uma forte correlação quanto mais próximo dos extremos. Quanto mais perto de -1, será visto uma relação inversamente proporcional das variáveis, enquanto mais perto de +1, sua relação será diretamente proporcional. Diante disso e com o resultado que foi encontrado de 0,697 do coeficiente, é possível afirmar que há uma correlação positiva relevante. 
+Outro fator importante visto é a variação. A partir do cálculo do coeficeinte de variação das duas variáveis, é perceptível que o peso varia mais quando comparado com a altura. O peso tem um coeficiente de 0.158 e a altura 0.057, portanto, por ser maior, o peso tem valores mais dispersos em relação a média.
+
+### Perfil da idade dos clientes das lojas de Âmbar Seco
+
+ Esta análise tem o objetivo de entender o perfil da idade dos clientes das diferentes lojas de Âmbar Seco, mostrada em anos. Os dados mostram a idade de todos os clientes registrados, no banco de dados, da cidade. Tal análise foi feita com uma variável quantitativa (idade) e uma variável qualitativa (nome das lojas) a partir de um gráfico de boxplot e um quadro resumo da variável idade.
+
+```{r}
+#| label: fig-idade_lojas
+#| fig-cap: "Boxplot da idade dos clientes pelas lojas de Âmbar Seco"
+boxplot
+```
+
+::: {#quad-resumo_idade layout-align="center" quad-pos="H"}
+```{=latex}
+\begin{tabular}{| l | S[table-format=1.2] | S[table-format=1.2] | S[table-format=1.2] | S[table-format=2.2] |}
+	\toprule
+		\textbf{Estatística} & \textbf{Banco Careca} & \textbf{Ferraria Seca} & \textbf{Saloon} & \textbf{Vendinha Rápida} \\
+		\midrule
+		Média & 34,92 & 33,67 & 34,20 & 40,35 \\
+		Desvio Padrão &  5,57 & 13,31 & 12,70 &  6,03 \\
+		Variância &  31,06 & 177,18 & 161,23 &  36,39 \\
+		Mínimo & 25 & 16 & 15 & 30 \\
+		1o Quartil & 31 & 24 & 26 & 35 \\
+		Mediana & 34,0 & 30,5 & 32,5 & 41,0 \\
+		3o Quartil & 40 & 39 & 38 & 46 \\
+		Máximo & 44 & 80 & 77 & 49 \\
+	\bottomrule
+	\end{tabular}
+```
+
+Medidas resumo da idade dos clientes pelas lojas de Âmbar Seco
+:::
+
+ Tendo a $\ref{fig-idade_lojas}$ e o [**Quadro** @quad-resumo_idade] como referência, são notórias as médias bem próximas. Na Vendinha Rápida, é possível notar que ela tem um público mais velho quando comparada com as outras, é um lugar que a idade mínima é 30 anos e devido a isso, sua média (40,35) e mediana (41,00) são as maiores dentre as quatro. Apesar dessas condições, não possui outliers (valores que distoam muito dos outros). Os únicos estabelecimentos que possuem são Ferraria Seca e Saloon, rotulando tais como as lojas com os clientes mais velhos (80 anos e 77 anos) e com maior desvio padrão. Por terem valores muito distantes, seus desvios padrões são os maiores da cidade, sendo respectivamente, 13,31 e 12,70. Não só isso faz o desvio padrão deles serem os maiores, mas também seus respectivos limites inferiores de 16 anos e 15 anos influenciam.
+
+### Os 3 produtos mais vendidos nas 3 lojas com maior receita em 1889
+
+ Esta análise tem o objetivo de ver os três produtos mais vendidos das três lojas com a maior receita no ano de 1889. Os dados mostram a quantidade de produtos nos estabelecimentos Ferraria Apache, Ouro Fino e TendTudo. Tal análise foi feita com uma variável quantitativa (quantidade de produtos) e uma variável qualitativa (nome do produto) a partir de um gráfico de colunas.
+
+```{r}
+#| label: fig-produtos
+#| fig-cap: "Gráfico de colunas dos produtos da loja Ferraria Apache"
+GraficoFerraria
+```
+
+```{r}
+#| label: fig-produtos2
+#| fig-cap: "Gráfico de colunas dos produtos da loja Ouro Fino"
+GraficoOuroFino
+```
+
+```{r}
+#| label: fig-produtos3
+#| fig-cap: "Gráfico de colunas dos produtos da loja TendTudo"
+GraficoTendTudo
+```
+
+ Tendo a $\ref{fig-produtos}$, $\ref{fig-produtos2}$ e a $\ref{fig-produtos3}$ como referência, é possível perceber que na Ferraria Apache tem chapéu de couro (52), espingarda (42) e machado (41) como os produtos mais vendidos, enquanto na Ouro Fino tem botas de couro (52), chapéu de couro (45) e whisky (49). Além desses produtos, é notório que na loja TendTudo tem colt .45 (43), espingarda (53) e whisky (49).
+ 
 # Conclusões
+
+ Portanto, é possível concluir que as receitas médias das lojas entre 1880 e 1889 apresentaram crescimento constante, com leve queda em 1888 retomando logo em seguida. A relação entre peso e altura dos clientes mostrou correlação positiva significativa (coeficiente de Pearson de 0,697). Em relação à idade dos clientes, a loja Vendinha Rápida destacou-se por atender um público mais velho e com idade parecida, enquanto Ferraria Seca e Saloon apresentaram maior variação e presença de outliers. Por fim, a análise dos produtos mais vendidos em 1889 nas lojas com maior receita revelou quais são esses produtos e a quantidade que foi vendida. Mostra que espingarda, whisky, colt .45, botas de couro, chapéu de couro e machado foram os mais vendidos na Ferraria Apache, Ouro Fino e TendTudo.
