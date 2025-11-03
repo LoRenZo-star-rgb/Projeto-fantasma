@@ -16,11 +16,11 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 ## Perfil da idade dos clientes das lojas de Âmbar Seco
 
-Esta análise tem o objetivo de entender o perfil da idade dos clientes das diferentes lojas de Âmbar Seco, mostrada em anos. Os dados mostram a idade de todos os clientes registrados, no banco de dados, da cidade de Âmbar Seco. Tal análise foi feita com uma variável quantitativa (idade) e uma variável qualitativa (nome das lojas) a partir de um gráfico de boxplot.
+Esta análise tem o objetivo de entender o perfil da idade dos clientes das diferentes lojas de Âmbar Seco, mostrada em anos. Os dados mostram a idade de todos os clientes registrados, no banco de dados, da cidade. Tal análise foi feita com uma variável quantitativa (idade) e uma variável qualitativa (nome das lojas) a partir de um gráfico de boxplot e um quadro resumo da variável idade.
 
 ```{r}
 #| label: fig-idade_lojas
-#| fig-cap: "Boxplot da idade dos clientes pelas lojas"
+#| fig-cap: "Boxplot da idade dos clientes pelas lojas de Âmbar Seco"
 boxplot
 ```
 
@@ -30,22 +30,22 @@ boxplot
 	\toprule
 		\textbf{Estatística} & \textbf{Banco Careca} & \textbf{Ferraria Seca} & \textbf{Saloon} & \textbf{Vendinha Rápida} \\
 		\midrule
-		Média & 34,99 & 33,95 & 35,64 & 39,76 \\
-		Desvio Padrão &  5,47 & 13,51 & 12,00 &  6,05 \\
-		Variância &  29,91 & 182,54 & 144,12 &  36,64 \\
+		Média & 34,92 & 33,67 & 34,20 & 40,35 \\
+		Desvio Padrão &  5,57 & 13,31 & 12,70 &  6,03 \\
+		Variância &  31,06 & 177,18 & 161,23 &  36,39 \\
 		Mínimo & 25 & 16 & 15 & 30 \\
-		1o Quartil & 31 & 24 & 27 & 34 \\
-		Mediana & 34 & 31 & 34 & 40 \\
-		3o Quartil & 40 & 39 & 39 & 44 \\
+		1o Quartil & 31 & 24 & 26 & 35 \\
+		Mediana & 34,0 & 30,5 & 32,5 & 41,0 \\
+		3o Quartil & 40 & 39 & 38 & 46 \\
 		Máximo & 44 & 80 & 77 & 49 \\
 	\bottomrule
 	\end{tabular}
 ```
 
-Medidas resumo da idade dos clientes de Âmbar Seco
+Medidas resumo da idade dos clientes pelas lojas de Âmbar Seco
 :::
 
-Tendo a $\ref{fig-idade_lojas}$ e o [**Quadro** @quad-resumo_idade] como referência, é notório as médias bem próximas, sendo a da loja Vendinha Rápida a única mais dispersa, logo, é possível notar que ela tem um público mais velho quando comparada com as outras, é um lugar que a idade mínima é 30 anos e devido a isso, sua média e mediana é a maior dentre as quatro. Apesar dessas condições, não possui outliers (valores que distoam muito dos outros). Os únicos estabelecimentos que possuem são Ferraria Seca e Saloon, rotulando tais como as lojas com os clientes mais velhos (80 anos e 77 anos) e com maior desvio padrão. Além disso, por terem valores muito distoantes, suas variâncias são as maiores da cidade, sendo respectivamente, 182,54 e 144,12. Não só isso faz a variância delas ser a maior, mas também seus respectivos limites inferiores de 16 anos e 15 anos influenciam.
+Tendo a $\ref{fig-idade_lojas}$ e o [**Quadro** @quad-resumo_idade] como referência, são notórias as médias bem próximas. Na Vendinha Rápida, é possível notar que ela tem um público mais velho quando comparada com as outras, é um lugar que a idade mínima é 30 anos e devido a isso, sua média (40,35) e mediana (41,00) são as maiores dentre as quatro. Apesar dessas condições, não possui outliers (valores que distoam muito dos outros). Os únicos estabelecimentos que possuem são Ferraria Seca e Saloon, rotulando tais como as lojas com os clientes mais velhos (80 anos e 77 anos) e com maior desvio padrão. Por terem valores muito distantes, seus desvios padrões são os maiores da cidade, sendo respectivamente, 13,31 e 12,70. Não só isso faz o desvio padrão deles serem os maiores, mas também seus respectivos limites inferiores de 16 anos e 15 anos influenciam.
 
 
 
